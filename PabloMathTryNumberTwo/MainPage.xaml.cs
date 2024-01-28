@@ -6,7 +6,6 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
     }
-
     private void OnGameChosen(object sender, EventArgs e)
     {
         Button button = (Button)sender;
@@ -16,9 +15,7 @@ public partial class MainPage : ContentPage
     }
 
     private void OnViewPreviousGamesChosen(object sender, EventArgs e)
-    {
-       
+    {       
         Navigation.PushAsync(new PreviousGames());
-
     }
 }

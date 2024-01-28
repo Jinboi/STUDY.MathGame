@@ -1,27 +1,25 @@
 ﻿using Microsoft.Extensions.Logging;
 using PabloMathTryNumberTwo.Data;
 
-namespace PabloMathTryNumberTwo
+namespace PabloMathTryNumberTwo;
+
+public static class MauiProgram
 {
-    public static class MauiProgram
+    public static MauiApp CreateMauiApp()
     {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("CaveatBrush-Regular.ttf", "CaveatBrushRegular");
-                   
-                });
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("CaveatBrush-Regular.ttf", "CaveatBrushRegular");
+               
+            });
+        string dbPath = Path.Combine(FileSystem.AppDataDirectory, "game.db");
 
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "game.db");
+        builder.Services.AddSingleton(s =>
+            ActivatorUtilities.CreateInstance<GameRepository>(s, dbPath));
 
-            builder.Services.AddSingleton(s =>
-                ActivatorUtilities.CreateInstance<GameRepository>(s, dbPath));
-
-            return builder.Build();
-        }
+        return builder.Build();
     }
 }

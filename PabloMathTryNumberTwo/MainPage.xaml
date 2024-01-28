@@ -6,34 +6,26 @@
     <ContentView>
         <VerticalStackLayout
             Spacing="25"
-            Padding="50"
-            
-            >
-            
+            Padding="50"            
+            >            
             <Label
                 Text="This is your maths game!" 
                 FontSize="50"
                 HorizontalOptions="Center"/>
-
             <Label 
                 Text="What game would you like to play?"
                 FontSize="50"
                 HorizontalOptions="Center"
                 />
             <Grid RowDefinitions="*, 150"
-                  ColumnDefinitions="*,*,*,*">
-
+                  ColumnDefinitions="*,*,*,*">            
                 
-
                 <Button Grid.Column="0"
                         Text="+"
                         Clicked="OnGameChosen"
                         MaximumWidthRequest="100"
-                        FontSize="60"
-                        
-                        />
-                        
-                        
+                        FontSize="60"                        
+                        />                                                
                 <Button Grid.Column="1"
                         Text="-"
                         Clicked="OnGameChosen"
@@ -63,7 +55,4 @@
             
         </VerticalStackLayout>
     </ContentView>
-	
-
-
 </ContentPage>

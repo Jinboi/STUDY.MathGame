@@ -10,8 +10,6 @@ public partial class GamePage : ContentPage
 	int score = 0;
 	const int totalQuestions = 2;
 	int gamesLeft = totalQuestions;
-
-
 	public GamePage(string gameType)
 	{
 		InitializeComponent();
@@ -20,11 +18,8 @@ public partial class GamePage : ContentPage
 
 		CreateNewQuestion();
 	}
-
 	private void CreateNewQuestion()
 	{
-	
-
 		var random = new Random();		
 
 		firstNumber = GameType != "Division" ? random.Next(1, 9) : random.Next(1, 99);
@@ -38,11 +33,8 @@ public partial class GamePage : ContentPage
 				secondNumber = random.Next(1, 99);
 			}
 		}
-
         QuestionLabel.Text = $"{firstNumber} {GameType} {secondNumber}";
-
 	}
-
 	private void OnAnswerSubmitted(object sender, EventArgs e)
 	{
 		var answer = Int32.Parse(AnswerEntry.Text);
@@ -73,10 +65,7 @@ public partial class GamePage : ContentPage
 			CreateNewQuestion();
 		else
 			GameOver();
-
     }
-
-
     private void GameOver()
     {
 		GameOperation gameOperation = GameType switch
@@ -98,14 +87,12 @@ public partial class GamePage : ContentPage
 			Score = score
 		});
 	}
-
     private void ProcessAnswer(bool isCorrect)
     {
 		if (isCorrect)
 			score += 1;
 
 		AnswerLabel.Text = isCorrect ? "Correct!" : "Incorrect!";
-
     }
 
 	private void OnBackToMenu(object sender, EventArgs e)
